@@ -1,0 +1,37 @@
+<form [formGroup]="clientesForm" (ngSubmit)="onFormSubmit(clientesForm.value)">
+
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Nombre" formControlName="nombre">
+    <mat-error>
+      <span *ngIf="!clientesForm.get('nombre').valid && clientesForm.get('nombre').touched">Ingrese un Nombre</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Apellido" formControlName="apellido">
+    <mat-error>
+      <span *ngIf="!clientesForm.get('apellido').valid && clientesForm.get('apellido').touched">Ingrese un Apellido</span>
+    </mat-error>
+  </mat-form-field>
+  
+  <mat-form-field class="full-width">
+    <input type="number" matInput placeholder="Edad" formControlName="edad">
+    <mat-error>
+      <span *ngIf="!clientesForm.get('edad').valid && clientesForm.get('edad').touched">Ingrese Edad</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input type="date" matInput placeholder="Fecha de nacimiento" formControlName="fechaNacimiento">
+    <mat-error>
+      <span *ngIf="!clientesForm.get('fechaNacimiento').valid && clientesForm.get('fechaNacimiento').touched">Ingrese una Fecha de Nacimiento</span>
+    </mat-error>
+  </mat-form-field>
+
+  <div class="button-row">
+    <button type="submit" [disabled]="!clientesForm.valid" mat-fab color="primary">
+      <mat-icon>save</mat-icon>
+    </button>
+  </div>
+  
+</form>

@@ -1,0 +1,36 @@
+<div class="container mat-elevation-z8">
+  <div>
+    <h5>Promedio edad: {{promedio}}</h5>
+    <h5>Desviación estándar: {{desviacion}}</h5>
+  </div>
+  <table mat-table #table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element" class="title-col"> {{element.nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="apellido">
+      <th mat-header-cell *matHeaderCellDef> Apellido </th>
+      <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edad">
+      <th mat-header-cell *matHeaderCellDef> Edad </th>
+      <td mat-cell *matCellDef="let element"> {{element.edad}} </td>
+    </ng-container>
+
+     <ng-container matColumnDef="fechaNacimiento">
+      <th mat-header-cell *matHeaderCellDef> Fecha de nacimiento </th>
+      <td mat-cell *matCellDef="let element"> {{element.fechaNacimiento}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fechaMuerte">
+      <th mat-header-cell *matHeaderCellDef> Fecha estimada de muerte </th>
+      <td mat-cell *matCellDef="let element"> {{element.fechaMuerte}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+  </table>
+</div>
