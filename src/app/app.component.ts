@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 
-const settings = {timestampsInSnapshots: true};
 const config = {
   apiKey: 'AIzaSyA5ilBCl3K_88U5hw-dtWz9rGNgUR25g98',
   authDomain: 'clientesdata-47c29.firebaseapp.com',

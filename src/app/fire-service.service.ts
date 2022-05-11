@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Cliente } from './models/cliente';
 import * as firebase from 'firebase';
 
 import '@firebase/firestore';
@@ -13,10 +14,10 @@ export class FireServiceService {
   expectativaVida = 75;
   constructor() { }
 
-  getClientes(): Observable<any> {
+  getClientes(): Observable<Cliente[]> {
     return new Observable((observer) => {
       this.ref.onSnapshot((querySnapshot) => {
-        const clientes = [];
+        const clientes: Cliente[] = [];
         querySnapshot.forEach((doc) => {
           const data = doc.data();
 

@@ -1,17 +1,19 @@
-.form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
+h4 {
+	margin-top:65px;
+	margin-bottom:20px;
+	color:#00b1c7;
+}
+h4.primerorden {
+	margin-top:0px;
 }
 
-.full-width {
-  width: 100%;
+label{
+	color: #3e6a6f;
+	margin-top: 10px;
 }
-
-.full-width:nth-last-child() {
-  margin-bottom: 10px;
-}
-
-.button-row {
-  margin: 10px 0;
+button.btn.btn-primary {
+	background-color: #00b1c7;
+    border-color: #00b1c7;
+    width: 100%;
+    margin: 50px 0;
 }

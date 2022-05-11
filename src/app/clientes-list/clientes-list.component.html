@@ -1,36 +1,47 @@
-<div class="container mat-elevation-z8">
-  <div>
-    <h5>Promedio edad: {{promedio}}</h5>
-    <h5>Desviación estándar: {{desviacion}}</h5>
+<div class="container">
+  <h2 class="title">Listado de Clientes</h2>
+
+  <div *ngIf="!flagClientes">
+    <h4 class="success">No se encuentran clientes</h4>
   </div>
-  <table mat-table #table [dataSource]="dataSource">
 
-    <ng-container matColumnDef="nombre">
-      <th mat-header-cell *matHeaderCellDef> Nombre </th>
-      <td mat-cell *matCellDef="let element" class="title-col"> {{element.nombre}} </td>
-    </ng-container>
+  <div *ngIf="flagClientes">
+    <h5 class="success">Promedio edad: {{promedio}}</h5>
+    <h5 class="success">Desviación estándar: {{desviacion}}</h5>
+  </div>
 
-    <ng-container matColumnDef="apellido">
-      <th mat-header-cell *matHeaderCellDef> Apellido </th>
-      <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
-    </ng-container>
+  <div class="container-fluid resultados" *ngIf="flagClientes">
+    <div class="row RowResultados">
+      <div class="col">       
+        <div class="ordenLeyenda">
+          <p class="leyendaResultados">RESULTADOS</p>
+        </div>
+        <hr>
+        <p class="mostrando">Mostrando {{clientes.length}} registros encontrados</p>
+      </div>
+    </div>
+  </div>
 
-    <ng-container matColumnDef="edad">
-      <th mat-header-cell *matHeaderCellDef> Edad </th>
-      <td mat-cell *matCellDef="let element"> {{element.edad}} </td>
-    </ng-container>
-
-     <ng-container matColumnDef="fechaNacimiento">
-      <th mat-header-cell *matHeaderCellDef> Fecha de nacimiento </th>
-      <td mat-cell *matCellDef="let element"> {{element.fechaNacimiento}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="fechaMuerte">
-      <th mat-header-cell *matHeaderCellDef> Fecha estimada de muerte </th>
-      <td mat-cell *matCellDef="let element"> {{element.fechaMuerte}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="columnas"></tr>
-    <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
-  </table>
+  <div *ngIf="flagClientes">
+    <table class="minimalistBlack">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Edad</th>
+          <th>Fecha de nacimiento</th>
+          <th>Fecha estimada de muerte</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fila of clientes;let i = index;">
+          <td><span>{{fila.nombre}}</span></td>
+          <td><span>{{fila.apellido}}</span></td>
+          <td><span>{{fila.edad}}</span></td>
+          <td><span>{{fila.fechaNacimiento}}</span></td>
+          <td><span>{{fila.fechaMuerte}}</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

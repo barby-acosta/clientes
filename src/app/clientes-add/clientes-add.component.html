@@ -1,37 +1,38 @@
-<form [formGroup]="clientesForm" (ngSubmit)="onFormSubmit(clientesForm.value)">
+<div class="container">
+  <form [formGroup]="clientesForm" ngNativeValidate (ngSubmit)="onFormSubmit(clientesForm.value)">
 
-  <mat-form-field class="full-width">
-    <input placeholder="Nombre" formControlName="nombre">
-    <mat-error>
-      <span *ngIf="!clientesForm.get('nombre').valid && clientesForm.get('nombre').touched">Ingrese un Nombre</span>
-    </mat-error>
-  </mat-form-field>
+    <div>
+      <h4 class="primerorden">Carga de un Cliente</h4>
 
-  <mat-form-field class="full-width">
-    <input placeholder="Apellido" formControlName="apellido">
-    <mat-error>
-      <span *ngIf="!clientesForm.get('apellido').valid && clientesForm.get('apellido').touched">Ingrese un Apellido</span>
-    </mat-error>
-  </mat-form-field>
-  
-  <mat-form-field class="full-width">
-    <input type="number" placeholder="Edad" formControlName="edad">
-    <mat-error>
-      <span *ngIf="!clientesForm.get('edad').valid && clientesForm.get('edad').touched">Ingrese Edad</span>
-    </mat-error>
-  </mat-form-field>
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" class="form-control" placeholder="Ingrese un nombre" formControlName="nombre">
+        <span style="color:red" *ngIf="!clientesForm.get('nombre').valid && clientesForm.get('nombre').touched">Ingrese un Nombre</span>
+      </div>
 
-  <mat-form-field class="full-width">
-    <input type="date" placeholder="Fecha de nacimiento" formControlName="fechaNacimiento">
-    <mat-error>
-      <span *ngIf="!clientesForm.get('fechaNacimiento').valid && clientesForm.get('fechaNacimiento').touched">Ingrese una Fecha de Nacimiento</span>
-    </mat-error>
-  </mat-form-field>
+      <div class="form-group">
+        <label for="name">Apellido</label>
+        <input type="text" class="form-control" placeholder="Ingrese un apellido" formControlName="apellido">
+        <span style="color:red" *ngIf="!clientesForm.get('apellido').valid && clientesForm.get('apellido').touched">Ingrese un
+          Apellido</span>
+      </div>
 
-  <div class="button-row">
-    <button type="submit" [disabled]="!clientesForm.valid" mat-fab color="primary">
-      <mat-icon>save</mat-icon>
-    </button>
-  </div>
-  
-</form>
+      <div class="form-group">
+        <label for="name">Edad</label>
+        <input type="number" min="0" class="form-control" placeholder="Ingrese edad" formControlName="edad">
+        <span style="color:red" *ngIf="!clientesForm.get('edad').valid && clientesForm.get('edad').touched">Ingrese Edad</span>
+
+      </div>
+
+      <div class="form-group">
+        <label for="name">Fecha de nacimiento</label>
+        <input type="date" class="form-control" placeholder="Ingrese una fecha" formControlName="fechaNacimiento">
+        <span style="color:red" *ngIf="!clientesForm.get('fechaNacimiento').valid && clientesForm.get('fechaNacimiento').touched">Ingrese
+          una Fecha de Nacimiento</span>
+      </div>
+
+    </div>
+
+    <button [disabled]="!clientesForm.valid" type="submit" class="btn btn-primary">GUARDAR CLIENTE</button>
+  </form>
+</div>

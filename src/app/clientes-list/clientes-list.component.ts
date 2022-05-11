@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataSource } from '@angular/cdk/collections';
 import { FireServiceService } from '../fire-service.service';
+import { Cliente } from '../models/cliente';
 
 @Component({
   selector: 'app-clientes-list',
@@ -8,26 +8,28 @@ import { FireServiceService } from '../fire-service.service';
   styleUrls: ['./clientes-list.component.css']
 })
 export class ClientesListComponent implements OnInit {
-  edades: number[] = [];
+ 
   promedio = 0;
   desviacion = 0;
-  dataSource: DataSource<any>;
-  columnas = ['nombre', 'apellido', 'edad', 'fechaNacimiento', 'fechaMuerte'];
+  clientes: Cliente[] = [];
+  flagClientes=false;
 
   constructor(private fs: FireServiceService) {
   }
 
   ngOnInit() {
     this.fs.getClientes().subscribe(res => {
-      this.dataSource = res;
+      let  edades: number[] = [];
+      this.clientes = res;
+      this.flagClientes=true;
       res.forEach(element => {
-        this.edades.push(element.edad);
+        edades.push(element.edad);
       });
       // desviacion y promedio
-      this.getPromedioDesviacion(this.edades);
-
+      this.getPromedioDesviacion(edades);
     }, (err) => {
       console.log(err);
+      this.flagClientes=false;
     });
 
   }

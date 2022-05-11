@@ -1,16 +1,104 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    max-height: 500px;
-    min-width: 300px;
-    overflow: auto;
-  }
-  
-  .title-col {
-    flex: 0 0 100px !important;
-    white-space: unset !important;
-  }
-  
-  .button-row {
-    margin: 10px 0;
-  }
+table.minimalistBlack {
+  width: 100%;
+  border-collapse: collapse;
+
+  display: block;
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: nowrap;
+  max-height: 2000px;
+  margin-top: 10px;
+}
+
+table.minimalistBlack td,
+table.minimalistBlack th {
+  border: 1px solid #00b1c7;
+  padding: 5px 4px;
+}
+
+table.minimalistBlack tbody td {
+  font-size: 13px;
+  text-align: center;
+}
+
+table.minimalistBlack thead {
+  background: #cfcfcf;
+  background: -moz-linear-gradient(top, #6ec6d1 0, #d3d3d3 66%, #cfcfcf 100%);
+  background: -webkit-linear-gradient(top, #6ec6d1 0, #d3d3d3 66%, #cfcfcf 100%);
+  background: linear-gradient(to bottom, #6ec6d1 0, #d3d3d3 66%, #cfcfcf 100%);
+  border-bottom: 3px solid #00b1c7;
+}
+
+table.minimalistBlack thead th {
+  font-size: 15px;
+  font-weight: 700;
+  color: #3e3d3d;
+  text-align: center;
+}
+
+th {
+  background: -moz-linear-gradient(top, #6ec6d1 0, #d3d3d3 66%, #cfcfcf 100%);
+  background: -webkit-linear-gradient(top, #6ec6d1 0, #d3d3d3 66%, #cfcfcf 100%);
+  background: linear-gradient(to bottom, #6ec6d1 0, #d3d3d3 66%, #cfcfcf 100%);
+  border-bottom: 3px solid #00b1c7;
+  position: sticky;
+  top: 0;
+}
+
+h2.title {
+  color: #00b1c7;
+  margin: 10px;
+}
+
+h4.success {
+  color: #3e6a6f;
+  margin: 10px;
+}
+
+h5.success {
+  color: #3e6a6f;
+  margin: 10px;
+}
+
+html {
+  font-size: 13px;
+  font-family: "Roboto";
+}
+
+.container-fluid {
+  max-width: 100%;
+}
+
+.RowResultados {
+  margin-top: 60px;
+}
+
+.resultados hr {
+  border: solid 1px #707070;
+}
+.ordenLeyenda {
+  margin-top: -44px;
+  margin-bottom: -11px;
+  display: flex;
+  justify-content: center;
+}
+
+.leyendaResultados {
+  background-color: #ffffff;
+  padding: 10px;
+  margin: 0;
+  color: #707070;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.mostrando {
+  text-align: center;
+  margin-top: 4px;
+  margin-bottom: 0;
+  color: #707070;
+}
+
+html {
+  font-size: 13px;
+  font-family: "Roboto";
+}
